@@ -12,11 +12,10 @@ import { Vue, Component, Prop } from 'nuxt-property-decorator'
 
 @Component({
   name: 'EditGroup',
-  components: {
-  }
+  components: { }
 })
 export default class EditGroup extends Vue {
-  @Prop({ type: Object }) post! : Object
+  @Prop({ type: Object }) post!: Object
 }
 </script>
 

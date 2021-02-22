@@ -30,6 +30,9 @@ import { INSERT_POST } from "~/graphql/mutations/posts";
 
 @Component({ name: "CreatePostForm" })
 export default class CreatePostForm extends Vue {
+
+  $apolloProvider: any
+
   title: string = 'test title'
   imgUrl: string = 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.iObO5Xook5Z3ea1ND3DB0AHaC9%26pid%3DApi&f=1'
   text: string = 'some text'
@@ -37,10 +40,10 @@ export default class CreatePostForm extends Vue {
   valid: boolean = false
 
   notEmptyRules: Function [] = [
-    v =>  !!v || 'Title is required',
+    (v:string) => !!v || 'Title is required',
   ]
 
-  async createPost () {
+  async createPost (): void {
     if (this.$refs.form.validate()) {
       const client = this.$apolloProvider.defaultClient
       const variables = {
@@ -52,10 +55,11 @@ export default class CreatePostForm extends Vue {
         }
       }
 
-      const { data }: Promise = await client.mutate({
+      const { data } :Promise<object> = await client.mutate({
         mutation: INSERT_POST,
         variables
       })
+      await this.$router.push(`/posts/${data.insert_posts_one.id}`)
       console.log(data)
     }
   }
