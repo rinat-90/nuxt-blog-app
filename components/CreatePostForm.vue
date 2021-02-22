@@ -43,7 +43,7 @@ export default class CreatePostForm extends Vue {
     (v:string) => !!v || 'Title is required',
   ]
 
-  async createPost (): void {
+  async createPost (): Promise<void> {
     if ((this.$refs.form as Vue & { validate: () => boolean }).validate()) {
       const client = this.$apolloProvider.defaultClient
       const variables = {
@@ -55,7 +55,7 @@ export default class CreatePostForm extends Vue {
         }
       }
 
-      const { data }: object = await client.mutate({
+      const { data } = await client.mutate({
         mutation: INSERT_POST,
         variables
       })
