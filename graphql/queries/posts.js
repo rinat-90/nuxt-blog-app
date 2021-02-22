@@ -11,20 +11,13 @@ export const ALL_POSTS = gql`
   }
 `
 
-export const GET_GAME_BY_ID = gql`
+export const SINGLE_POST = gql`
   query MyQuery($id: Int!) {
-    games_by_pk(id: $id){
+    posts_by_pk(id: $id){
       id
-      title
-      description
-      type
-      timeStart
-      timeEnd
-      spots
-      skillLevel
-      location
       imgUrl
-      date
+      text
+      title
     }
   }
 `
