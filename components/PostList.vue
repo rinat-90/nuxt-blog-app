@@ -11,7 +11,7 @@
 
 <script lang="ts">
 import { Vue, Component, Prop } from "nuxt-property-decorator";
-import PostCard from '~/components/PostCard'
+import PostCard from '~/components/PostCard.vue'
 @Component({
   name: "PostList",
   components: { PostCard }
