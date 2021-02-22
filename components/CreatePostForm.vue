@@ -44,7 +44,7 @@ export default class CreatePostForm extends Vue {
   ]
 
   async createPost (): void {
-    if (this.$refs.form.validate()) {
+    if ((this.$refs.form as Vue & { validate: () => boolean }).validate()) {
       const client = this.$apolloProvider.defaultClient
       const variables = {
         post: {
@@ -55,7 +55,7 @@ export default class CreatePostForm extends Vue {
         }
       }
 
-      const { data } :Promise<object> = await client.mutate({
+      const { data }: object = await client.mutate({
         mutation: INSERT_POST,
         variables
       })
