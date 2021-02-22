@@ -1,6 +1,6 @@
 <template>
   <v-card :to="`/posts/${post.id}`">
-    <v-img :src="post.imgUrl"></v-img>
+    <v-img :src="post.imgUrl" height="200px"></v-img>
     <v-card-title>{{ post.title }}</v-card-title>
   </v-card>
 </template>

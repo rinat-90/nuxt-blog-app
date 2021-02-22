@@ -1,6 +1,6 @@
 <template>
   <v-row>
-    <v-col>
+    <v-col v-if="post">
       <pre>
         {{ post }}
       </pre>

@@ -16,7 +16,7 @@ import { Vue, Component, Prop } from 'nuxt-property-decorator'
   }
 })
 export default class EditGroup extends Vue {
-  @Prop({ type: String }) post! : Object
+  @Prop({ type: Object }) post! : Object
 }
 </script>
 

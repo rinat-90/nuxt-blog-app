@@ -1,5 +1,5 @@
 <template>
-  <v-row>
+  <v-row v-if="posts.length">
     <PostList :posts="posts" />
   </v-row>
 </template>

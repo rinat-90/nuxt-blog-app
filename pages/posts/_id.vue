@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="post">
     <nuxt-child :post="post" />
   </div>
 </template>
